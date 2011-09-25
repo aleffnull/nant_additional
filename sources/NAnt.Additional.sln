@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAnt.Additional.Tasks", "NAnt.Additional.Tasks\NAnt.Additional.Tasks.csproj", "{7AEBEACE-635D-4FFB-833F-02A3DECABADA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAnt.Additional.Tests", "NAnt.Additional.Tests\NAnt.Additional.Tests.csproj", "{21CDBDEC-0C41-436D-96EE-F99FD3F67EA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{7AEBEACE-635D-4FFB-833F-02A3DECABADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AEBEACE-635D-4FFB-833F-02A3DECABADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AEBEACE-635D-4FFB-833F-02A3DECABADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21CDBDEC-0C41-436D-96EE-F99FD3F67EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21CDBDEC-0C41-436D-96EE-F99FD3F67EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21CDBDEC-0C41-436D-96EE-F99FD3F67EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21CDBDEC-0C41-436D-96EE-F99FD3F67EA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
