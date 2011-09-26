@@ -26,7 +26,7 @@ namespace NAnt.Additional.Tests.Tasks
 				Assert.That(document.Root, Is.Not.Null);
 				// ReSharper disable PossibleNullReferenceException
 				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
-				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element1"));
+				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element2"));
 				// ReSharper restore PossibleNullReferenceException
 			}
 			finally
@@ -51,7 +51,7 @@ namespace NAnt.Additional.Tests.Tasks
 				Assert.That(document.Root, Is.Not.Null);
 				// ReSharper disable PossibleNullReferenceException
 				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
-				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element1"));
+				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element2"));
 				// ReSharper restore PossibleNullReferenceException
 			}
 			finally
