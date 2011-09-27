@@ -1,4 +1,7 @@
 ﻿using System.IO;
+using System.Linq;
+using System.Xml.Linq;
+using System.Xml.XPath;
 using NAnt.Core;
 using NAnt.Core.Attributes;
 
@@ -22,7 +25,10 @@ namespace NAnt.Additional.Tasks
 
 		protected override void ExecuteTask()
 		{
-			//
+			var document = XDocument.Load(File.FullName);
+			var nodes = document.XPathSelectElements(XPath).ToList();
+			nodes.ForEach(node => node.Remove());
+			document.Save(File.FullName);
 		}
 
 		#endregion Task overrides

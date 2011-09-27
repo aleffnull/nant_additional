@@ -4,13 +4,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NAnt.Additional.Tasks")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyProduct("NAnt.Additional.Tasks")]
+[assembly: AssemblyTitle("Additional tasks for NAnt build system")]
+[assembly: AssemblyCompany("Mikhail K. Savkin")]
 [assembly: AssemblyCopyright("Copyright © Mikhail K. Savkin 2011")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

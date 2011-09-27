@@ -12,7 +12,7 @@ namespace NAnt.Additional.Tests.Tasks
 		#region Tests
 
 		[Test]
-		public void CanDropOneNodeByNodePath()
+		public void CanDropOneNode()
 		{
 			var document = new XDocument(new XElement("document", new XElement("element1"), new XElement("element2")));
 			var file = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
@@ -26,7 +26,56 @@ namespace NAnt.Additional.Tests.Tasks
 				Assert.That(document.Root, Is.Not.Null);
 				// ReSharper disable PossibleNullReferenceException
 				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
-				Assert.That(document.Root.Descendants().First().Name, Is.EqualTo("element2"));
+				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element2"));
+				// ReSharper restore PossibleNullReferenceException
+			}
+			finally
+			{
+				File.Delete(file);
+			}
+		}
+
+		[Test]
+		public void CanDropSeveralNodes()
+		{
+			var document = new XDocument(
+				new XElement("document", new XElement("element1"), new XElement("element1"), new XElement("element2")));
+			var file = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+			document.Save(file);
+			try
+			{
+				var task = new XmlDropNodeTaskExecutor { File = new FileInfo(file), XPath = "/document/element1" };
+				task.CallExecuteTask();
+
+				document = XDocument.Load(file);
+				Assert.That(document.Root, Is.Not.Null);
+				// ReSharper disable PossibleNullReferenceException
+				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
+				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element2"));
+				// ReSharper restore PossibleNullReferenceException
+			}
+			finally
+			{
+				File.Delete(file);
+			}
+		}
+
+		[Test]
+		public void CanRunIfNothingToDrop()
+		{
+			var document = new XDocument(new XElement("document", new XElement("element1")));
+			var file = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+			document.Save(file);
+			try
+			{
+				var task = new XmlDropNodeTaskExecutor { File = new FileInfo(file), XPath = "/document/element2" };
+				task.CallExecuteTask();
+
+				document = XDocument.Load(file);
+				Assert.That(document.Root, Is.Not.Null);
+				// ReSharper disable PossibleNullReferenceException
+				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
+				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element1"));
 				// ReSharper restore PossibleNullReferenceException
 			}
 			finally
