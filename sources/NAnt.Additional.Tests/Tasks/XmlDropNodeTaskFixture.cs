@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using NAnt.Additional.Tasks;
 using NAnt.Additional.Tests.Tasks.Executors;
 using NUnit.Framework;
 
