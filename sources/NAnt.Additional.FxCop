@@ -40,5 +40,238 @@
   <Groups />
   <Settings />
  </Rules>
- <FxCopReport Version="10.0" />
+ <FxCopReport Version="10.0">
+  <Namespaces>
+   <Namespace Name="NAnt.Additional.Tasks">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2011-09-28 13:12:45Z">
+      <Issue>
+       <Item>NAnt.Additional.Tasks</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="NAnt.Additional.Tasks.Logging">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2011-09-28 13:12:45Z">
+      <Issue>
+       <Item>NAnt.Additional.Tasks.Logging</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/NAnt.Additional.Tasks/bin/Debug/NAnt.Additional.Tasks.dll">
+    <Modules>
+     <Module Name="nant.additional.tasks.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Excluded" Created="2011-09-28 13:12:45Z">
+        <Issue Name="NoStrongName">
+         <Item>'NAnt.Additional.Tasks.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Excluded" Created="2011-09-28 13:12:45Z">
+        <Issue>
+         <Item>'NAnt.Additional.Tasks.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="NAnt.Additional.Tasks">
+        <Types>
+         <Type Name="XmlAddNodeTask">
+          <Members>
+           <Member Name="#ExecuteTask()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object, object)'</Item>
+               <Item>'XmlAddNodeTask.ExecuteTask()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlDropNodeTask">
+          <Members>
+           <Member Name="#ExecuteTask()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'XmlDropNodeTask.ExecuteTask()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlTask">
+          <Members>
+           <Member Name="#Save(System.Xml.Linq.XDocument,System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2011-09-28 13:12:45Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'XmlTask.Save(XDocument, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/NAnt.Additional.Tests/bin/Debug/NAnt.Additional.Tests.dll">
+    <Modules>
+     <Module Name="nant.additional.tests.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Excluded" Created="2011-09-28 13:12:45Z">
+        <Issue Name="NoStrongName">
+         <Item>'NAnt.Additional.Tests.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Excluded" Created="2011-09-28 13:12:45Z">
+        <Issue>
+         <Item>'NAnt.Additional.Tests.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="NAnt.Additional.Tests.Tasks">
+        <Types>
+         <Type Name="XmlAddNodeTaskFixture">
+          <Members>
+           <Member Name="#CanAddDuplicateNode()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2011-09-28 13:12:45Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'XmlAddNodeTaskFixture.CanAddDuplicateNode()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object, object)'</Item>
+               <Item>'XmlAddNodeTaskFixture.CanAddDuplicateNode()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CanAddNode()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2011-09-28 13:12:45Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'XmlAddNodeTaskFixture.CanAddNode()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object, object)'</Item>
+               <Item>'XmlAddNodeTaskFixture.CanAddNode()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlDropNodeTaskFixture">
+          <Members>
+           <Member Name="#CanDropOneNode()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2011-09-28 13:12:45Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'XmlDropNodeTaskFixture.CanDropOneNode()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'XmlDropNodeTaskFixture.CanDropOneNode()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CanDropSeveralNodes()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2011-09-28 13:12:45Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'XmlDropNodeTaskFixture.CanDropSeveralNodes()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'XmlDropNodeTaskFixture.CanDropSeveralNodes()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CanRunIfNothingToDrop()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2011-09-28 13:12:45Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'XmlDropNodeTaskFixture.CanRunIfNothingToDrop()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Excluded" Created="2011-09-28 13:12:45Z">
+              <Issue Name="IFormatProviderAlternateString">
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'XmlDropNodeTaskFixture.CanRunIfNothingToDrop()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+               <Item>'CultureInfo.CurrentCulture'</Item>
+               <Item>'CultureInfo.InvariantCulture'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
 </FxCopProject>
