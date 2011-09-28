@@ -36,6 +36,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\Libs\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="NAnt.Core">
       <HintPath>..\Libs\NAnt.Core.dll</HintPath>
     </Reference>

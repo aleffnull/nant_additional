@@ -1,7 +1,11 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using Moq;
+using NAnt.Additional.Tasks.Logging;
+using NAnt.Additional.Tasks.Properties;
 using NAnt.Additional.Tests.Tasks.Executors;
+using NAnt.Core;
 using NUnit.Framework;
 
 namespace NAnt.Additional.Tests.Tasks
@@ -19,7 +23,13 @@ namespace NAnt.Additional.Tests.Tasks
 			document.Save(file);
 			try
 			{
-				var task = new XmlDropNodeTaskExecutor { File = new FileInfo(file), XPath = "/document/element1" };
+				var mock = new Mock<ILogger>();
+				var task = new XmlDropNodeTaskExecutor
+				           {
+				           	File = new FileInfo(file),
+				           	XPath = "/document/element1",
+				           	Logger = mock.Object
+				           };
 				task.CallExecuteTask();
 
 				document = XDocument.Load(file);
@@ -28,6 +38,9 @@ namespace NAnt.Additional.Tests.Tasks
 				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
 				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element2"));
 				// ReSharper restore PossibleNullReferenceException
+
+				var desiredLogMessage = string.Format(Resources.XmlDropNodeTaskLogMessage, task.XPath, file);
+				mock.Verify(logger => logger.Log(It.Is<Level>(l => l == Level.Info), It.Is<string>(s => s.Equals(desiredLogMessage))));
 			}
 			finally
 			{
@@ -44,7 +57,13 @@ namespace NAnt.Additional.Tests.Tasks
 			document.Save(file);
 			try
 			{
-				var task = new XmlDropNodeTaskExecutor { File = new FileInfo(file), XPath = "/document/element1" };
+				var mock = new Mock<ILogger>();
+				var task = new XmlDropNodeTaskExecutor
+				           {
+				           	File = new FileInfo(file),
+				           	XPath = "/document/element1",
+				           	Logger = mock.Object
+				           };
 				task.CallExecuteTask();
 
 				document = XDocument.Load(file);
@@ -53,6 +72,9 @@ namespace NAnt.Additional.Tests.Tasks
 				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
 				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element2"));
 				// ReSharper restore PossibleNullReferenceException
+
+				var desiredLogMessage = string.Format(Resources.XmlDropNodeTaskLogMessage, task.XPath, file);
+				mock.Verify(logger => logger.Log(It.Is<Level>(l => l == Level.Info), It.Is<string>(s => s.Equals(desiredLogMessage))));
 			}
 			finally
 			{
@@ -68,7 +90,13 @@ namespace NAnt.Additional.Tests.Tasks
 			document.Save(file);
 			try
 			{
-				var task = new XmlDropNodeTaskExecutor { File = new FileInfo(file), XPath = "/document/element2" };
+				var mock = new Mock<ILogger>();
+				var task = new XmlDropNodeTaskExecutor
+				           {
+				           	File = new FileInfo(file),
+				           	XPath = "/document/element2",
+				           	Logger = mock.Object
+				           };
 				task.CallExecuteTask();
 
 				document = XDocument.Load(file);
@@ -77,6 +105,9 @@ namespace NAnt.Additional.Tests.Tasks
 				Assert.That(document.Root.Descendants().Count(), Is.EqualTo(1));
 				Assert.That(document.Root.Descendants().First().Name.ToString(), Is.EqualTo("element1"));
 				// ReSharper restore PossibleNullReferenceException
+
+				var desiredLogMessage = string.Format(Resources.XmlDropNodeTaskLogMessage, task.XPath, file);
+				mock.Verify(logger => logger.Log(It.Is<Level>(l => l == Level.Info), It.Is<string>(s => s.Equals(desiredLogMessage))));
 			}
 			finally
 			{
