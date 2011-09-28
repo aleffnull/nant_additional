@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="XmlDropNodeTaskLogMessage" xml:space="preserve">
-    <value>Dropping node at path {0} in file '{1}'</value>
+    <value>Dropping node at path '{0}' in file '{1}'</value>
     <comment>0 is node XPath, 1 is file path</comment>
   </data>
   <data name="XmlAddNodeTaskLogMessage" xml:space="preserve">
-    <value>Adding node xml '{0}' as descendant of node {1} in file '{2}'</value>
+    <value>Adding node xml '{0}' as descendant of node '{1}' in file '{2}'</value>
     <comment>0 is node XML, 1 is parent node XPath, 2 is file path</comment>
   </data>
 </root>

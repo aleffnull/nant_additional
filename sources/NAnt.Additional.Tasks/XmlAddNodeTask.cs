@@ -8,6 +8,7 @@ using NAnt.Core.Attributes;
 
 namespace NAnt.Additional.Tasks
 {
+	[TaskName("xmlAddNode")]
 	public class XmlAddNodeTask : Task
 	{
 		#region Constructors

@@ -9,6 +9,7 @@ using NAnt.Core.Attributes;
 
 namespace NAnt.Additional.Tasks
 {
+	[TaskName("xmlDropNode")]
 	public class XmlDropNodeTask : Task
 	{
 		#region Constructors

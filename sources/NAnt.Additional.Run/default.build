@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project>
+	<target name="init">
+		<property name="original_file" value="original.xml" />
+		<property name="working_file" value="working.xml" />
+
+		<loadtasks assembly="NAnt.Additional.Tasks.dll" />
+	</target>
+
+	<target name="drop_node" depends="init">
+		<copy file="${original_file}" tofile="${working_file}" overwrite="true" />
+		<xmlDropNode file="${working_file}" xpath="/document/element1" />
+	</target>
+
+	<target name="add_node" depends="init">
+		<copy file="${original_file}" tofile="${working_file}" overwrite="true" />
+		<xmlAddNode file="${working_file}" xpath="/document" nodeXml="&lt;element3 value=&quot;some_value&quot; /&gt;" />
+	</target>
+</project>

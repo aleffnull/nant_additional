@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAnt.Additional.Tasks", "NA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAnt.Additional.Tests", "NAnt.Additional.Tests\NAnt.Additional.Tests.csproj", "{21CDBDEC-0C41-436D-96EE-F99FD3F67EA8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAnt.Additional.Run", "NAnt.Additional.Run", "{962559C9-8B30-4036-A4FB-05FEE0DFA6D7}"
+	ProjectSection(SolutionItems) = preProject
+		NAnt.Additional.Run\default.build = NAnt.Additional.Run\default.build
+		NAnt.Additional.Run\original.xml = NAnt.Additional.Run\original.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
