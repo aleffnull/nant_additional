@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="XmlAddNodeTask.cs" />
     <Compile Include="XmlDropNodeTask.cs" />
+    <Compile Include="XmlTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

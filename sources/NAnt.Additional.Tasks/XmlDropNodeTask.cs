@@ -10,7 +10,7 @@ using NAnt.Core.Attributes;
 namespace NAnt.Additional.Tasks
 {
 	[TaskName("xmlDropNode")]
-	public class XmlDropNodeTask : Task
+	public class XmlDropNodeTask : XmlTask
 	{
 		#region Constructors
 
@@ -44,7 +44,7 @@ namespace NAnt.Additional.Tasks
 			var document = XDocument.Load(File.FullName);
 			var nodes = document.XPathSelectElements(XPath).ToList();
 			nodes.ForEach(node => node.Remove());
-			document.Save(File.FullName);
+			Save(document, File.FullName);
 		}
 
 		#endregion Task overrides

@@ -9,7 +9,7 @@ using NAnt.Core.Attributes;
 namespace NAnt.Additional.Tasks
 {
 	[TaskName("xmlAddNode")]
-	public class XmlAddNodeTask : Task
+	public class XmlAddNodeTask : XmlTask
 	{
 		#region Constructors
 
@@ -48,7 +48,7 @@ namespace NAnt.Additional.Tasks
 			var parentNode = document.XPathSelectElement(XPath);
 			var children = XElement.Parse(NodeXml);
 			parentNode.Add(children);
-			document.Save(File.FullName);
+			Save(document, File.FullName);
 		}
 
 		#endregion Task overrides
