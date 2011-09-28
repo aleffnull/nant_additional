@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using NAnt.Additional.Tasks.Logging;
+using NAnt.Additional.Tasks.Properties;
 using NAnt.Core;
 using NAnt.Core.Attributes;
 
@@ -8,6 +10,15 @@ namespace NAnt.Additional.Tasks
 {
 	public class XmlAddNodeTask : Task
 	{
+		#region Constructors
+
+		public XmlAddNodeTask()
+		{
+			Logger = new NAntLogger(this);
+		}
+
+		#endregion Constructors
+
 		#region Properties
 
 		[TaskAttribute("file", Required = true)]
@@ -22,12 +33,16 @@ namespace NAnt.Additional.Tasks
 		[StringValidator(AllowEmpty = false)]
 		public string NodeXml { get; set; }
 
+		public ILogger Logger { get; set; }
+
 		#endregion Properties
 
 		#region Task overrides
 
 		protected override void ExecuteTask()
 		{
+			Logger.Log(Level.Info, string.Format(Resources.XmlAddNodeTaskLogMessage, NodeXml, XPath, File.FullName));
+
 			var document = XDocument.Load(File.FullName);
 			var parentNode = document.XPathSelectElement(XPath);
 			var children = XElement.Parse(NodeXml);

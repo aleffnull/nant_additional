@@ -61,6 +61,15 @@ namespace NAnt.Additional.Tasks.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding node xml &apos;{0}&apos; as descendant of node {1} in file &apos;{2}&apos;.
+        /// </summary>
+        public static string XmlAddNodeTaskLogMessage {
+            get {
+                return ResourceManager.GetString("XmlAddNodeTaskLogMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dropping node at path {0} in file &apos;{1}&apos;.
         /// </summary>
         public static string XmlDropNodeTaskLogMessage {
